@@ -1,0 +1,65 @@
+<h1>Editing event</h1>
+
+<% form_for [@event.user,@event], :html => { :multipart => true } do |f| %>
+  <table>
+    <tr>
+      <td><%= f.label :title %>*</td>
+      <td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %></td>
+      <td><%= f.text_area :description, :rows=>5,:cols=>35%></td>
+    </tr>
+    <tr>
+      <td><%= f.label :Web_page %>**</td>
+      <td><%= f.text_field :web_page_link %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :poster %>**</td>
+      <td>
+        <%= radio_button_tag 'poster', 'n', true, :class=>'poster-type'%> No poster<br/><br/>
+        <%= radio_button_tag 'poster', 'l', false, :class=>'poster-type'%> Poster link<br/>
+        <%= f.text_field :image_link, :class=>"poster-link" %><br/><br/>
+        <%= radio_button_tag 'poster', 'u', false, :class=>'poster-type'%> Upload poster<br/>
+        <%= f.file_field :poster, :class=>"poster-file" %>
+      </td>
+    </tr>
+    <tr>
+      <td><%= f.label :video %>**</td>
+      <td><%= f.text_field :video_link %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :address %>*</td>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :event_date %>*</td>
+      <td><div id="calendar">
+          <%= f.calendar_date_select :date, :time=>true,:valid_date_check => " date.stripTime() >= (new Date()).stripTime()"%>
+        </div></td>
+    </tr>
+    <tr>
+      <td><%= f.label :contact %></td>
+      <td><%= f.text_field :contact %></td>
+    </tr>
+    <tr>
+    <div class="reqistration_details">
+      <td><label for="reg">Does your event require Reqistration?</label></td>
+      <td><%= radio_button_tag 'reg', 'y',false, :class=>'reg_req' %> Yes
+        <%= radio_button_tag 'reg', 'n', true, :class=>'reg_req'%> No</td>
+    </div>
+  </tr>
+  <tr class="reg_details" style='display: none;'>
+    <td><%= f.label :price %></td>
+    <td><%= f.text_field :price,:class=>'event-reg-price' %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit 'Update' %></td>
+  </tr>
+  </table>
+  <%= f.error_messages %>
+<% end %>
+
+
+<%= link_to 'Show', user_event_path(:user_id => params[:user_id], :id=>@event.id) %> |
+<%= link_to 'Back', user_events_path(:user_id => params[:user_id]) %>

@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>Events: <%= controller.action_name %></title>
+    <%= stylesheet_link_tag 'meretricious/styles'%>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+    <%= javascript_include_tag 'jquery-validate/jquery.validate.min.js' %>
+    <script type="text/javascript">
+      $(document).ready(function($){
+        $(".reg_details").show();
+        $('.event-reg-price').val("");
+        $('.poster-link').attr("disabled", "true");
+        $('.poster-file').attr("disabled", "true");
+        $('.event-reg-price').attr("disabled", "true");
+        $(".reg_req").click(function(){
+          if ($('input[name=reg]:checked').val() == "y" ) {
+            $('.event-reg-price').val(0.0);
+            $('.event-reg-price').removeAttr("disabled");
+          } else {
+            $('.event-reg-price').val("");
+            $('.event-reg-price').attr("disabled", "true");
+          }
+        });
+        $(".poster-type").click(function(){
+          if($('input[name=poster]:checked').val() == "n"){
+            $('.poster-link').attr("disabled", "true");
+            $('.poster-file').attr("disabled", "true");
+          } else if($('input[name=poster]:checked').val() == "u"){
+            $('.poster-file').removeAttr("disabled");
+            $('.poster-link').val("");
+            $('.poster-link').attr("disabled", "true");
+          } else if($('input[name=poster]:checked').val() == "l"){
+            $('.poster-link').removeAttr("disabled");
+            $('.poster-file').val("");
+            $('.poster-file').attr("disabled", "true");
+          }
+        });
+<%#*$("#new_event").validate({%>
+<%#*debug: true,%>
+<%#*rules: {%>
+<%#*"event[address]": {required: true},%>
+<%#*"event[date]": {required: true},%>
+<%#*"event[contact]": {required: true, mask: "(999) 999-9999"}%>
+<%#*},%>
+<%#*messages: {%>
+<%#*'event[address]': "Enter Event location",%>
+<%#*'event[date]': "Select date",%>
+<%#*'event[contact]': "Enter a valid phone number"%>
+<%#*}%>
+<%#*});%>
+  });
+<%#*Important to include as it removes conflict between calendar_date_select and jQuery%>
+  jQuery.noConflict();
+    </script>
+    <%= javascript_include_tag :all %>
+    <%= calendar_date_select_includes %>
+  </head>
+  <body>
+    <%=render :partial=>"layouts/common_header.html.erb"%>
+  </body>
+</html>

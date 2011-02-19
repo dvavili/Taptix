@@ -1,0 +1,32 @@
+<h2>Sign up</h2>
+
+<% form_for resource_name, resource, :url => registration_path(resource_name) do |f| -%>
+  <table style="width:75%">
+    <tr>
+      <td><h4><%= f.label :name %></h4></td>
+      <td><%= f.text_field :name %></td>
+    </tr>
+    <tr>
+      <td><h4><%= f.label :email %></h4></td>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <td><h4><%= f.label :password %></h4></td>
+      <td><%= f.password_field :password %></td>
+    </tr>
+    <tr>
+      <td><h4><%= f.label :confirm_password %></h4></td>
+      <td><%= f.password_field :password_confirmation %></td>
+    </tr>
+    <tr>
+      <td><h4><%= f.label :address %></h4></td>
+      <td><%= f.text_field :address %></td>
+    </tr>
+    <tr>
+      <td><h4><%= f.label :phone_number %></h4></td>
+      <td><%= f.text_field :phone %></td>
+    </tr>
+    <tr><td colspan="2" align="center"><%= f.submit "Sign up" %></td></tr>
+  </table>
+<%= f.error_messages %>
+<% end -%>

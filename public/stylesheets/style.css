@@ -1,0 +1,403 @@
+* {
+  margin: 0;
+  padding: 0;
+  }
+
+body {
+  font-size:100%;
+  font-family: Arial,'Lucida Grande',Verdana,sans-serif;
+  text-align:center;
+  background:#000 url(images/background.gif) repeat-x top left;
+}
+
+#container {
+  width:1000px;
+  background:#FFF;
+  margin:0 auto 0 auto;
+}
+
+#body_space {
+  padding:0 8px 0 8px;
+}
+  
+#header {
+  width:984px;
+  background:#FFF;
+  margin:0 auto 0 auto;
+}
+
+.cls {
+clear:both;
+}
+
+/* logo and small slogan */
+
+#logo-block {
+  height:126px;
+  width:601px;
+  float:left;
+  text-align:left;
+}
+
+#logo {
+  padding-top:44px;
+  line-height:40px;
+  font:48px Arial, "Times New Roman", Times;
+  padding-left:27px;
+  color:#5A5A5A;
+}
+
+#slogan {
+  font:14px Arial, "Times New Roman", Times;
+  color:#5A5A5A;
+  padding-left:97px;
+}
+
+.logoblue {
+color:#518BBA;
+}
+
+/* end logo and small slogan */
+
+/* top login and search */
+
+#definels {
+  width:383px;
+  float:right;
+}
+
+#login_top {
+  background:#000 url(images/login.gif) no-repeat top left;
+  height:35px;
+  text-align:left;
+  padding-left:50px;
+ }
+
+ #login_top p {
+  font:14px Arial, "Times New Roman", Times;
+  color:#E9E9E9;
+  padding-top:10px;
+  float:left;
+ }
+ 
+#login_top input {
+  margin:6px 0;
+  padding-right:8px;
+  float:left;
+}
+
+.topinputstyle{
+  border:0px;
+  background:#D1D1D1;
+  width:77px;
+  height:17px;
+  color:#000;
+  font-size:14px;
+  padding-top:5px;
+  padding-bottom:2px;
+  padding-left:10px;
+}
+
+.loginbutton{
+  background:transparent url(images/loginbutton.gif) no-repeat top left;
+  border:none;
+  width:22px;
+  height:22px;
+  cursor:pointer;
+  padding-left:10px;
+  margin-top:2px;
+}
+
+#search {
+  clear:left;
+  width:259px;
+  margin-left:43px;
+  margin-top:30px;
+}
+
+#search input.box {
+  color: #000;
+  font-size: 14px;
+  width: 160px;
+  height: 17px;
+  background: #FFF;
+  border:1px solid #A6A6A6;
+  margin-right: 5px;
+}
+
+#search button.btn {
+  width: 79px;
+  height: 21px;
+  cursor: pointer;
+  color:#fff;
+  background: #fbc900 url(images/search.gif) no-repeat top left;
+}
+
+/* top login and search */
+
+/* top navigation bar */
+
+#top-nav-bg  {
+  background:transparent url(images/topnavbar.gif) no-repeat top left;
+  height:38px;
+  width:984px;
+}
+
+	
+#top-nav {
+  height:38px;
+  width:984px;
+}
+  
+#top-nav ul {
+  list-style:none;
+  padding-left:20px;
+}
+  
+#top-nav ul a {
+  background-image: url(images/topnavdivider.gif);
+  background-repeat: no-repeat;
+  background-position: right;
+  padding-right: 18px;
+  padding-left: 16px;
+  display: block;
+  line-height: 38px;
+  text-decoration: none;
+  font-family: Arial, "Times New Roman", Times, serif;
+  font-size: 17px;
+  color: #FFF;
+}
+	
+#top-nav ul a:hover {
+  color: #FDA041;
+  text-decoration: underline;
+}
+ 
+  #top-nav li {
+    float:left;
+	}
+	
+/* end top navigation bar */
+
+
+/* image of clouds with large header */
+
+#clouds {
+  background:url(images/clouds.jpg) no-repeat top left;
+  width:984px;
+  height:156px;
+  text-shadow:1px 1px 1px #000;
+  margin-top:9px;
+}
+
+#clouds-slogan1 {
+  font:48px Georgia, Arial, "Times New Roman", Times;
+  padding:25px 0px 0px 130px;
+  color:#FFF;
+  text-align:left;
+  letter-spacing:-2px;
+}
+#clouds-slogan2 {
+  font:48px Georgia, Arial, "Times New Roman", Times;
+  padding:0px 0px 0px 367px;
+  color:#FFF;
+  text-align:left;
+  letter-spacing:-2px;
+}
+
+/* end image of clouds with large header */
+
+
+#page {
+  width:1000px;
+  min-height:206px;
+  margin:0 auto 0 auto;
+  background:#FFF;
+  padding-top:8px;
+}
+
+#page-padding {
+  padding:3px 8px 0px 8px;
+}
+
+/* main page content */
+
+#content {
+  float:left;
+  width:691px;
+  background:#FFF url(images/page-background.jpg) no-repeat top left;
+}
+
+#content-padding {
+  padding:15px;
+}
+
+#content h1,h2,h3,h4,h5 {
+  padding:5px 5px 10px 5px;
+  font:32px Arial, "Times New Roman", Times;
+  color:#494949;
+  text-align:left;
+}
+
+#content p {
+  padding:0px 5px 10px 5px;
+  font:15px Arial, "Times New Roman", Times;
+  text-align:justify;
+}
+
+#content a {
+  text-decoration: underline;
+  color:#0B3E70;
+}
+	
+#content a:hover {
+  text-decoration:none;
+  text-shadow:0px 0px 4px #FDA041;
+}
+
+.grey {
+  color:#494949;
+}
+.blue {
+  color:#005795;
+}
+
+/* end main page content */
+
+/* right menu, navigation, newsletter */
+
+#right-nav {
+  float:right;
+  width:283px;
+  text-align:left;
+}
+
+.right-nav-back {
+  background:#FFF url(images/right-menu-bg.gif) repeat-y top left;
+  width:283px;
+}
+
+.right-nav-top {
+  background:#FFF url(images/right-menu-top.gif) no-repeat top left;
+  width:283px;
+  height:36px;  
+}
+.right-nav-top p {
+  color:#FFF;
+  font:13px Arial, "Times New Roman", Times;
+  font-weight:bold;
+  padding:13px 0px 0px 10px;
+}
+.right-nav-bottom {
+  background:#FFF url(images/right-menu-bottom.gif) no-repeat top left;
+  width:283px;
+  height:12px;
+  padding-bottom:10px;
+}
+  
+#right-nav ul
+{
+  list-style:none;
+  text-align:left;
+  padding-top:10px;
+}
+  
+#right-nav li a
+{
+  background-image: url(images/right-menu-div.gif);
+  background-repeat: no-repeat;
+  background-position: bottom;
+  display:block;
+  padding:13px 0px 18px 15px;
+  line-height:15px;
+  text-decoration: none;
+  color: #494949;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size:19px;
+}
+  
+#right-nav li a:hover
+{
+  color:#C46A00;
+  text-decoration: underline;
+}
+  
+.right-nav-divider {
+  background: transparent url(images/menu-divider.gif) no-repeat top left;
+  width:226px;
+  height:1px;
+  padding-bottom:33px;
+}
+
+#subscribe {
+  text-align:right;
+  padding-right:30px;
+}
+
+#subscribe form {
+  margin-left:11px;
+}
+
+#subscribe input {
+  margin:6px 0;
+}
+
+.inputstyle {
+  background:#FFF;
+  border:1px solid #ADADAD;
+  width:250px;
+  height:22px;
+  color:#494949;
+  font-size:14px;
+  padding-top:5px;
+  padding-left:10px;
+}
+
+.button {
+  background:transparent url(images/button.jpg) no-repeat top left;
+  vertical-align:middle;
+  padding-bottom:5px;
+  border:none;
+  width:131px;
+  height:31px;
+  color:#FFF;
+  font:bold 13px Arial, Georgia, "Times New Roman", Times;
+  cursor:pointer;
+  margin-left:5px;
+}
+
+/* end right menu, navigation, newsletter */
+
+/* footer */
+
+#footer {
+  clear:both;
+  background:#000 url(images/footer.gif) repeat-x top left;
+  width:1000px;
+  height:183px;
+  margin:0 auto 0 auto;
+  text-align:left;
+}
+
+#footer-pad {
+  width:984px;
+  padding:50px 0px 0px 0px;
+  text-align:center;
+}
+
+#footer p {
+  font:14px Arial, "Times New Roman", Times;
+  color:#929292;
+}
+
+#footer a {
+  color:#FFF;
+  text-decoration:underline;
+}
+
+#footer a:hover {
+  color:#C46A00;
+  text-decoration:none;
+}
+
+/* end footer */

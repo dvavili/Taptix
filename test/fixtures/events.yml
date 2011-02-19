@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  web_pag_url: MyString
+  image_url: MyString
+  video_url: MyString
+  audio_url: MyString
+  loc_latitude: MyString
+  loc_longitude: MyString
+  date: 2011-02-04 13:58:03
+  contact: MyString
+  price: 9.99
+  event_url: MyString
+
+two:
+  web_pag_url: MyString
+  image_url: MyString
+  video_url: MyString
+  audio_url: MyString
+  loc_latitude: MyString
+  loc_longitude: MyString
+  date: 2011-02-04 13:58:03
+  contact: MyString
+  price: 9.99
+  event_url: MyString

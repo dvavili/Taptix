@@ -1,0 +1,36 @@
+<h1>Listing events</h1>
+
+<table>
+  <tr>
+    <th>Web page link</th>
+    <th>Image link</th>
+    <th>Video link</th>
+    <th>Address</th>
+    <th>Date</th>
+    <th>Contact</th>
+    <th>Price</th>
+    <th>Event link</th>
+  </tr>
+  <%if !@events[:user_id].nil?%>
+    <% @events[:user_id].each do |event| %>
+      <tr>
+        <td><%=h event.web_page_link %></td>
+        <td><%=h event.image_link %></td>
+        <td><%=h event.video_link %></td>
+        <td><%=h event.address %></td>
+        <td><%=h event.date %></td>
+        <td><%=h event.contact %></td>
+        <td><%=h event.price %></td>
+        <td><%=h event.event_link %></td>
+        <td><%= link_to 'Show', user_event_path(params[:user_id],event) %></td>
+        <td><%= link_to 'Edit', edit_user_event_path(params[:user_id],event) %></td>
+        <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  <%end%>
+</table>
+
+<br />
+<%if user_signed_in?%>
+  <%= link_to 'New event', new_user_event_path(current_user) %>
+<%end%>

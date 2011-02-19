@@ -1,0 +1,48 @@
+<h1>Create event</h1>
+
+<% form_for [@event.customer,@event], :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <table>
+    <tr>
+      <td><%= f.label :Web_page %>**</td>
+      <td><%= f.text_field :web_page_url %></td>
+    </tr>
+  </tr>
+    <td><%= f.label :image %>**</td>
+    <td><%= f.file_field :image_url %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :video %>**</td>
+    <td><%= f.text_field :video_url %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :loc_latitude %></td>
+    <td><%= f.text_field :loc_latitude %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :loc_longitude %></td>
+    <td><%= f.text_field :loc_longitude %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :date %>*</td>
+    <div id="date-pick">
+      <td><%= f.text_field :date%></td>
+    </div>
+  <tr>
+    <td><%= f.label :contact %></td>
+    <td><%= f.text_field :contact %></td>
+  </tr>
+  <tr>
+    <td><%= f.label :price %></td>
+    <td><%= f.text_field :price %></td>
+  </tr>
+  <tr>
+    <td><%= f.submit 'Create' %></td>
+  </tr>
+<% end %>
+
+<%= link_to 'Back', customer_events_path(@event.customer) %>
+<script type="text/javascript">
+  $('#date-picker').datePicker({inline:true});
+</script>

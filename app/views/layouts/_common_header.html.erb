@@ -1,0 +1,35 @@
+<div class="pagewidth">
+  <div class="header">
+    <!-- TITLE -->
+    <h1><a href="#">TapTix</a></h1>
+    <h2>Event organizer</h2>
+    <!-- END TITLE -->
+  </div>
+  <div class="nav">
+    <ul>
+      <!-- MENU -->
+      <li class="selected"><%=link_to "Home", :controller=>:events, :action=>:show_all_events%></li>
+      <%if user_signed_in?%>
+        <li><%=link_to "My Events", show_user_events_path(current_user)%></li>
+      <%end%>
+      <li>
+        <% if user_signed_in? %>
+          <%= link_to "Sign out", destroy_user_session_path %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </li>
+      <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <!-- END MENU -->
+    </ul>
+  </div>
+  <div class="page-wrap">
+    <div class="content">
+      <p style="color: green; font-size: 15px"><%= flash[:notice] %></p>
+      <p style="color: red; font-size: 15px"><%= flash[:error] %></p>
+<%#=render :controller=>"events",:action=>"show_all_events"%>
+      <%=yield%>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
