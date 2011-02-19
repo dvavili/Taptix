@@ -1,36 +1,35 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Web page link</th>
-    <th>Image link</th>
-    <th>Video link</th>
-    <th>Address</th>
-    <th>Date</th>
-    <th>Contact</th>
-    <th>Price</th>
-    <th>Event link</th>
-  </tr>
-  <%if !@events[:user_id].nil?%>
-    <% @events[:user_id].each do |event| %>
-      <tr>
-        <td><%=h event.web_page_link %></td>
-        <td><%=h event.image_link %></td>
-        <td><%=h event.video_link %></td>
-        <td><%=h event.address %></td>
-        <td><%=h event.date %></td>
-        <td><%=h event.contact %></td>
-        <td><%=h event.price %></td>
-        <td><%=h event.event_link %></td>
-        <td><%= link_to 'Show', user_event_path(params[:user_id],event) %></td>
-        <td><%= link_to 'Edit', edit_user_event_path(params[:user_id],event) %></td>
-        <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-      </tr>
-    <% end %>
-  <%end%>
-</table>
-
-<br />
 <%if user_signed_in?%>
   <%= link_to 'New event', new_user_event_path(current_user) %>
 <%end%>
+
+<h1>Events</h1>
+
+<table>
+  <% @events.each do |event| %>
+    <tr>
+      <td width="20%">
+        <%= image_tag event.poster.url(:small) %>
+      </td>
+      <td>
+        <b>Title:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.title %><br/>
+        <%if !event.description.nil? && !event.description.blank?%>
+          <b>Description:</b>&nbsp;&nbsp;<%=h event.description %><br/>
+        <%end%>
+        <%if !event.web_page_link.nil? && !event.web_page_link.blank?%>
+          <b>Web page:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.web_page_link %><br/>
+        <%end%>
+        <%if !event.video_link.nil? && !event.video_link.blank?%>
+          <b>Video link:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.video_link %><br/>
+        <%end%>
+        <b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.address %><br/>
+        <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.contact %><br/>
+        <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.date %><br/>
+        <%if !event.price.nil? && !event.price.blank?%>
+        <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.price %><br/>
+        <%else%>
+        <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free<br/>
+        <%end%>
+      </td>
+    </tr>
+  <% end %>
+</table>

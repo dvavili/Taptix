@@ -6,7 +6,7 @@ class EventsController < ApplicationController
   # GET /events.xml
   def index
     
-    @events = User.find(params[:user_id])
+    @events = Event.find_all_events
 
     respond_to do |format|
       format.html # index.html.erb

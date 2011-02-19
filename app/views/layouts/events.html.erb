@@ -12,8 +12,17 @@
       $(document).ready(function($){
         $(".reg_details").show();
         $('.event-reg-price').val("");
-        $('.poster-link').attr("disabled", "true");
-        $('.poster-file').attr("disabled", "true");
+        if($('.poster-link').val() == "u"){
+          $('.poster-link').val("");
+          $("[name=poster]").filter("[value=u]").attr("checked","checked");
+        }else{
+          $('.poster-file').attr("disabled", "true");
+        }
+        if($('.poster-link').val() == ""){
+          $('.poster-link').attr("disabled", "true");
+        }else{
+          $("[name=poster]").filter("[value=l]").attr("checked","checked");
+        }
         $('.event-reg-price').attr("disabled", "true");
         $(".reg_req").click(function(){
           if ($('input[name=reg]:checked').val() == "y" ) {
