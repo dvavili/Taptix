@@ -21,7 +21,7 @@ group :plugins do
   gem 'paperclip', '2.3.4'
   gem "workling"
   gem "thinking-sphinx", :git=>'git://github.com/freelancing-god/thinking-sphinx.git'
-#  gem "geokit", :git=>'git://github.com/andre/geokit-rails.git'
+  gem "geokit", :git=>'git://github.com/andre/geokit-rails.git'
 end
 
 group :development do
