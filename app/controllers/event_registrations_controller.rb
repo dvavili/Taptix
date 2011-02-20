@@ -44,6 +44,7 @@ class EventRegistrationsController < ApplicationController
 
     respond_to do |format|
       if @event_registration.save
+        logger.info "true"
         format.html { redirect_to(@event_registration, :notice => 'EventRegistration was successfully created.') }
         format.xml  { render :xml => @event_registration, :status => :created, :location => @event_registration }
       else
@@ -51,6 +52,17 @@ class EventRegistrationsController < ApplicationController
         format.xml  { render :xml => @event_registration.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  # POST /event_registrations
+  # POST /event_registrations.xml
+  def register
+    @event_registration = EventRegistration.new(params[:event_registration])
+    success = false
+      if @event_registration.save
+        success = true
+      end
+    success
   end
 
   # PUT /event_registrations/1

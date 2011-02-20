@@ -8,7 +8,11 @@
   <% @events.each do |event| %>
     <tr>
       <td width="20%">
-        <%= image_tag event.poster.url(:small) %>
+        <%if user_signed_in?%>
+          <%= link_to (image_tag event.poster.url(:small),:border=>0),user_event_path(:user_id => event.user.id, :id=> event)%>
+        <%else%>
+          <%= link_to (image_tag event.poster.url(:small),:border=>0),event%>
+        <%end%>
       </td>
       <td>
         <b>Title:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.title %><br/>
@@ -25,9 +29,9 @@
         <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.contact %><br/>
         <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.date %><br/>
         <%if !event.price.nil? && !event.price.blank?%>
-        <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.price %><br/>
+          <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.price %><br/>
         <%else%>
-        <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free<br/>
+          <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free<br/>
         <%end%>
       </td>
     </tr>

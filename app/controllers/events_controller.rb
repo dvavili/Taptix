@@ -1,7 +1,7 @@
 require 'open-uri'
 
 class EventsController < ApplicationController
-  before_filter :authenticate_user!, :except=>[:show_all_events]
+  before_filter :authenticate_user!, :except=>[:show_all_events,:show]
   # GET /events
   # GET /events.xml
   def index
@@ -15,16 +15,6 @@ class EventsController < ApplicationController
     end
   end
 
-  #  def show_all_events
-  #    @events = Event.find_all_events
-  #    redirect_to()
-  #
-  #    respond_to do |format|
-  #      format.html # index.html.erb
-  #      format.xml  { render :xml => @events }
-  #    end
-  #  end
-
   # GET /events/1
   # GET /events/1.xml
   def show
@@ -36,6 +26,17 @@ class EventsController < ApplicationController
       format.json { render :json=>@event }
     end
   end
+
+  def show_event
+    @event = Event.find(params[:event_id])
+
+    respond_to do |format|
+      format.html "show.html.erb"
+      format.xml  { render :xml => @event }
+      format.json { render :json=>@event }
+    end
+  end
+
 
   # GET /events/new
   # GET /events/new.xml
