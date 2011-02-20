@@ -5,12 +5,6 @@ class Event < ActiveRecord::Base
   belongs_to :user
   has_many :registrations
 
-  has_attached_file :poster, :styles => { :small => "150x150>",:medium => "200x200>",:large => "320x240>" },
-    :url => @photo_path,
-    :path => ":rails_root/public/assets/events/:id/:style/:basename.:extension"
-
-  validates_attachment_size :poster, :less_than => 15.megabytes
-  validates_attachment_content_type :poster, :content_type => [ 'image/jpeg','image/png']
   validate :price_must_be_atleast_a_cent
   validate :validate_fields
   validate :geocode_address
