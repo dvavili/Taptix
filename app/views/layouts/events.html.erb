@@ -11,61 +11,36 @@
     <script type="text/javascript">
       $(document).ready(function($){
         $(".reg_details").show();
-        $('.event-reg-price').val("");
-<%#*if($('.poster-link').val() == "u"){%>
-<%#*$('.poster-link').val("");%>
-<%#*$("[name=poster]").filter("[value=u]").attr("checked","checked");%>
-<%#*}else{%>
-<%#*$('.poster-file').attr("disabled", "true");%>
-<%#*}%>
-<%#*if($('.poster-link').val() == ""){%>
-<%#*$('.poster-link').attr("disabled", "true");%>
-<%#*}else{%>
-<%#*$("[name=poster]").filter("[value=l]").attr("checked","checked");%>
-<%#*}%>
-    <%#*if($('.poster-link').val()==""){%>
-      <%#*$('.poster-link').attr("disabled", "true");%>
-    <%#*}else{%>
-      <%#*$("[name=poster]").filter("[value=l]").attr("checked","checked");%>
-    <%#*}%>
-    $('.event-reg-price').attr("disabled", "true");
-    $(".reg_req").click(function(){
-      if ($('input[name=reg]:checked').val() == "y" ) {
-        $('.event-reg-price').val(0.0);
-        $('.event-reg-price').removeAttr("disabled");
-      } else {
-        $('.event-reg-price').val("");
-        $('.event-reg-price').attr("disabled", "true");
-      }
-    });
-    $(".poster-type").click(function(){
-      if($('input[name=poster]:checked').val() == "n"){
-        $('.poster-link').attr("disabled", "true");
-        $('.poster-file').attr("disabled", "true");
-      } else if($('input[name=poster]:checked').val() == "u"){
-        $('.poster-file').removeAttr("disabled");
-        $('.poster-link').val("");
-        $('.poster-link').attr("disabled", "true");
-      } else if($('input[name=poster]:checked').val() == "l"){
-        $('.poster-link').removeAttr("disabled");
-        $('.poster-file').val("");
-        $('.poster-file').attr("disabled", "true");
-      }
-    });
-<%#*$("#new_event").validate({%>
-<%#*debug: true,%>
-<%#*rules: {%>
-<%#*"event[address]": {required: true},%>
-<%#*"event[date]": {required: true},%>
-<%#*"event[contact]": {required: true, mask: "(999) 999-9999"}%>
-<%#*},%>
-<%#*messages: {%>
-<%#*'event[address]': "Enter Event location",%>
-<%#*'event[date]': "Select date",%>
-<%#*'event[contact]': "Enter a valid phone number"%>
-<%#*}%>
-<%#*});%>
-  });
+        prev_price = $('.event-reg-price').val();
+        if($('.event-reg-price').val() == ""){
+          $('.event-reg-price').attr("disabled", "true");
+        }else{
+          $("[name=reg]").filter("[value=y]").attr("checked","checked");
+        }
+        $(".reg_req").click(function(){
+          if ($('input[name=reg]:checked').val() == "y" ) {
+            $('.event-reg-price').val(prev_price);
+            $('.event-reg-price').removeAttr("disabled");
+          } else {
+            $('.event-reg-price').val("");
+            $('.event-reg-price').attr("disabled", "true");
+          }
+        });
+        $(".poster-type").click(function(){
+          if($('input[name=poster]:checked').val() == "n"){
+            $('.poster-link').attr("disabled", "true");
+            $('.poster-file').attr("disabled", "true");
+          } else if($('input[name=poster]:checked').val() == "u"){
+            $('.poster-file').removeAttr("disabled");
+            $('.poster-link').val("");
+            $('.poster-link').attr("disabled", "true");
+          } else if($('input[name=poster]:checked').val() == "l"){
+            $('.poster-link').removeAttr("disabled");
+            $('.poster-file').val("");
+            $('.poster-file').attr("disabled", "true");
+          }
+        });
+      });
 <%#*Important to include as it removes conflict between calendar_date_select and jQuery%>
   jQuery.noConflict();
     </script>
