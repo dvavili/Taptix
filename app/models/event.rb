@@ -22,7 +22,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.find_user_events(user_id)
-    Event.find(:all, :order=>"date desc", :conditions=>['date > ? and user_id == ?',Date.today,user_id])
+    Event.find(:all, :order=>"date desc", :conditions=>['date > ? and user_id = ?',Date.today,user_id])
   end
 
   private
