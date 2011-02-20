@@ -1,11 +1,7 @@
 require 'open-uri'
 
 class EventsController < ApplicationController
-<<<<<<< HEAD
-#  before_filter :authenticate_user!, :except=>[:show_all_events,:show]
-=======
-  #before_filter :authenticate_user!, :except=>[:show_all_events,:show]
->>>>>>> 46e0b33c41d802b770e97559807c3cda652b0c46
+  before_filter :authenticate_user!, :except=>[:show_all_events,:show]
   # GET /events
   # GET /events.xml
   def index

@@ -32,6 +32,7 @@ GEM
     eventmachine (0.12.10)
     fastthread (1.0.7)
     gem_plugin (0.2.3)
+    geokit (1.5.0)
     linecache (0.43)
     memcache (1.2.13)
     memcache-client (1.8.5)
@@ -77,6 +78,7 @@ DEPENDENCIES
   calendar_date_select
   chronic
   devise (= 1.0.8)
+  geokit
   memcache
   mongrel (= 1.1.5)
   paperclip (= 2.3.4)
