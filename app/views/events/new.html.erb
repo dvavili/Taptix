@@ -29,6 +29,11 @@
       <td><%= f.text_field :video_link %></td>
     </tr>
     <tr>
+      <td>  <%= f.label :category %></td>
+      <td><%=f.select "category", options_for_select(["Music","Sports","Entertainment","Info sessions","Other"],"Other")%>
+      </td>
+    </tr>
+    <tr>
       <td><%= f.label :address %>*</td>
       <td><%= f.text_field :address %></td>
     </tr>
