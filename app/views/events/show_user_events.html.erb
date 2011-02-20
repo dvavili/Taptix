@@ -8,7 +8,15 @@
   <% @events.each do |event| %>
     <tr>
       <td width="20%">
-        <%= image_tag event.poster.url(:small) %>
+        <%if event.image_link.nil? or event.image_link.blank?%>
+          <%= link_to "No poster", event %>
+        <%else%>
+          <%if user_signed_in?%>
+            <%= link_to (image_tag event.image_link, :width=>"150", :height=>"150",:border=>0),user_event_path(:user_id => event.user.id, :id=> event)%>
+          <%else%>
+            <%= link_to (image_tag event.image_link, :width=>"150", :height=>"150",:border=>0),event%>
+          <%end%>
+        <%end%>>
       </td>
       <td>
         <b>Title:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.title %><br/>

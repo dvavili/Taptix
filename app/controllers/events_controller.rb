@@ -71,13 +71,13 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
     @event.user = User.find(params[:user_id])
-    if(params[:poster]=='l')
-      @event.poster = open(@event.image_link)
-    else
-      if(params[:poster]=='u')
-        @event.image_link ='u'
-      end
-    end
+#    if(params[:poster]=='l')
+#      @event.poster = open(@event.image_link)
+#    else
+#      if(params[:poster]=='u')
+#        @event.image_link ='u'
+#      end
+#    end
     respond_to do |format|
       if @event.save
         format.html { redirect_to(user_event_path(params[:user_id],@event), :notice => 'Event was successfully created.') }
@@ -97,14 +97,14 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.update_attributes(params[:event])
-        if(params[:poster]=='l')
-          @event.poster = open(@event.image_link)
-        else
-          if(params[:poster]=='u')
-            @event.image_link ='u'
-          end
-        end
-        @event.save
+#        if(params[:poster]=='l')
+#          @event.poster = open(@event.image_link)
+#        else
+#          if(params[:poster]=='u')
+#            @event.image_link ='u'
+#          end
+#        end
+#        @event.save
         format.html { redirect_to(user_event_path(params[:user_id],@event), :notice => 'Event was successfully updated.') }
         format.xml  { head :ok }
       else
