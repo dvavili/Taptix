@@ -1733,3 +1733,19 @@ Rendering events/show_all_events
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
 Rendered layouts/_common_header (9.2ms)
 Completed in 241ms (View: 186, DB: 18) | 200 OK [http://localhost/]
+
+
+Processing EventsController#category_search (for 127.0.0.1 at 2011-02-21 14:41:55) [GET]
+  Parameters: {"latitude"=>"37.791821", "tag"=>"info", "longitude"=>"-122.394679"}
+  [4;35;1mEvent Load (0.0ms)[0m   [0mSQLite3::SQLException: near "~": syntax error: SELECT * FROM "events" WHERE (date > '2011-02-21' and category ~* '%info') ORDER BY date asc[0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "~": syntax error: SELECT * FROM "events" WHERE (date > '2011-02-21' and category ~* '%info')  ORDER BY date asc):
+  app/models/event.rb:23:in `search_categories'
+  app/controllers/events_controller.rb:58:in `category_search'
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendered rescues/_trace (94.8ms)
+Rendered rescues/_request_and_response (3.5ms)
+Rendering rescues/layout (internal_server_error)

@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.search_categories(event_category, latitude, longitude)
-    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and category ~* '%#{event_category}'",Date.today])
+    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and category ~* '#{event_category}'",Date.today])
     user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
     events.sort_by_distance_from(user_loc)
     events.to_json()
