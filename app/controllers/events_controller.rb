@@ -55,7 +55,7 @@ class EventsController < ApplicationController
 
 
   def category_search
-    @events = Event.search_categories(params[:tag].strip)
+    @events = Event.search_categories(params[:tag].strip,params[:latitude],params[:longitude])
     logger.debug("#{params[:tag]}")
     respond_to do |format|
 #      format.html #"show_all_events.html.erb"
