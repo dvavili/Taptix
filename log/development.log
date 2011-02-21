@@ -1,82 +1,15 @@
 
 
-Processing EventRegistrationsController#validate_registration (for 127.0.0.1 at 2011-02-20 19:05:49) [GET]
-  Parameters: {"appln_id"=>"223", "confirmation"=>"285006b11ef9cb9818df119250898f804983be2e", "event_id"=>"1"}
-  [4;35;1mEventRegistration Load (0.9ms)[0m   [0mSELECT * FROM "event_registrations" WHERE ("event_registrations"."event_id" = '1' AND "event_registrations"."application_id" = '223') LIMIT 1[0m
-#<EventRegistration:0xb6ecead0>
-
-NoMethodError (undefined method `>' for nil:NilClass):
-  app/controllers/event_registrations_controller.rb:75:in `validate_registration'
-  warden (0.10.7) lib/warden/manager.rb:35:in `call'
-  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
-  warden (0.10.7) lib/warden/manager.rb:34:in `call'
-
-Rendered rescues/_trace (76.5ms)
-Rendered rescues/_request_and_response (0.7ms)
-Rendering rescues/layout (internal_server_error)
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-20 19:42:33) [GET]
+  [4;36;1mEvent Load (12.9ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-20') ORDER BY date desc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendered layouts/_common_header (22.4ms)
+Completed in 396ms (View: 264, DB: 15) | 200 OK [http://localhost/]
 
 
-Processing EventRegistrationsController#validate_registration (for 127.0.0.1 at 2011-02-20 19:07:48) [GET]
-  Parameters: {"appln_id"=>"223", "confirmation"=>"285006b11ef9cb9818df119250898f804983be2e", "event_id"=>"1"}
-  [4;36;1mEventRegistration Load (7.1ms)[0m   [0;1mSELECT * FROM "event_registrations" WHERE ("event_registrations"."event_id" = '1' AND "event_registrations"."application_id" = '223') LIMIT 1[0m
-#<EventRegistration:0xb6cd3b90>
-
-NoMethodError (undefined method `>' for nil:NilClass):
-  app/controllers/event_registrations_controller.rb:75:in `validate_registration'
-  warden (0.10.7) lib/warden/manager.rb:35:in `call'
-  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
-  warden (0.10.7) lib/warden/manager.rb:34:in `call'
-
-Rendered rescues/_trace (161.9ms)
-Rendered rescues/_request_and_response (0.7ms)
-Rendering rescues/layout (internal_server_error)
-  [4;36;1mSQL (3.0ms)[0m   [0;1m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;35;1mSQL (1.5ms)[0m   [0mSELECT version FROM schema_migrations[0m
-Migrating to CreateEvents (20110204220808)
-Migrating to AddNumberOfHitsToEvents (20110204221135)
-Migrating to AddUserIdToEvents (20110204222907)
-Migrating to DeviseCreateUsers (20110212210754)
-Migrating to AddAddressToEvent (20110213143051)
-Migrating to AddLongitudeToEvent (20110213221619)
-Migrating to AddLatitudeToEvent (20110213221632)
-Migrating to CreateEventRegistrations (20110218191658)
-Migrating to AddTitleToEvent (20110219223904)
-Migrating to AddDescriptionToEvent (20110219223932)
-Migrating to AddCategoryToEvent (20110220211028)
-Migrating to AddConfirmationCodeToEventRegistration (20110221004327)
-Migrating to AddAttendedToEventRegistration (20110221012544)
-  [4;36;1mSQL (0.4ms)[0m   [0;1mselect sqlite_version(*)[0m
-  [4;35;1mSQL (1.0ms)[0m   [0m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;36;1mSQL (3.8ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
-  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
- FROM sqlite_master
- WHERE type = 'table' AND NOT name = 'sqlite_sequence'
-[0m
-  [4;36;1mSQL (0.2ms)[0m   [0;1mPRAGMA index_list("event_registrations")[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("events")[0m
-  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_list("users")[0m
-  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_info('index_users_on_reset_password_token')[0m
-  [4;36;1mSQL (0.3ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
-  [4;36;1mEventRegistration Load (0.7ms)[0m   [0;1mSELECT * FROM "event_registrations" WHERE ("event_registrations"."application_id" = 223 AND "event_registrations"."event_id" = 1) LIMIT 1[0m
-  [4;35;1mEventRegistration Load (1.1ms)[0m   [0mSELECT * FROM "event_registrations" WHERE ("event_registrations"."application_id" = 223 AND "event_registrations"."event_id" = 1) LIMIT 1[0m
-
-
-Processing EventRegistrationsController#validate_registration (for 127.0.0.1 at 2011-02-20 19:15:16) [GET]
-  Parameters: {"appln_id"=>"223", "confirmation"=>"285006b11ef9cb9818df119250898f804983be2e", "event_id"=>"1"}
-  [4;36;1mEventRegistration Load (0.8ms)[0m   [0;1mSELECT * FROM "event_registrations" WHERE ("event_registrations"."application_id" = '223' AND "event_registrations"."event_id" = '1') LIMIT 1[0m
-#<EventRegistration:0xb6e7a3f4>
-  [4;35;1mEventRegistration Update (1.0ms)[0m   [0mUPDATE "event_registrations" SET "attended" = 0, "updated_at" = '2011-02-21 03:15:16' WHERE "id" = 1[0m
-Completed in 72ms (View: 2, DB: 2) | 200 OK [http://localhost/validate_registration/1/223/285006b11ef9cb9818df119250898f804983be2e]
-
-
-Processing EventRegistrationsController#validate_registration (for 127.0.0.1 at 2011-02-20 19:16:25) [GET]
-  Parameters: {"appln_id"=>"223", "confirmation"=>"285006b11ef9cb9818df119250898f804983be2e", "event_id"=>"1"}
-  [4;36;1mEventRegistration Load (0.7ms)[0m   [0;1mSELECT * FROM "event_registrations" WHERE ("event_registrations"."application_id" = '223' AND "event_registrations"."event_id" = '1') LIMIT 1[0m
-#<EventRegistration:0xb6e21a60>
-Completed in 51ms (View: 1, DB: 1) | 200 OK [http://localhost/validate_registration/1/223/285006b11ef9cb9818df119250898f804983be2e]
+Processing EventRegistrationsController#register (for 127.0.0.1 at 2011-02-20 19:42:46) [GET]
+  Parameters: {"appln_id"=>"123", "event_id"=>"1"}
+  [4;36;1mEventRegistration Create (0.7ms)[0m   [0;1mINSERT INTO "event_registrations" ("created_at", "confirmation", "event_id", "application_id", "updated_at", "attended") VALUES('2011-02-21 03:42:46', 'a9d3fce5596bf47c5f6722897f0731f5c85c85e7', 1, 123, '2011-02-21 03:42:46', 0)[0m
+Completed in 86ms (View: 4, DB: 1) | 200 OK [http://localhost/event_registrations/1/123]

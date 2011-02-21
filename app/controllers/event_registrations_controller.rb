@@ -59,7 +59,7 @@ class EventRegistrationsController < ApplicationController
     @event_registration = EventRegistration.new
     @event_registration.event_id = params[:event_id]
     @event_registration.application_id = params[:appln_id]
-    @event_registration.attended = false
+    @event_registration.attended = true
     respond_to do |format|
       if @event_registration.save
         format.json { render :json=>@event_registration.confirmation }
