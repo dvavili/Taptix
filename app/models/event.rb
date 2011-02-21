@@ -20,7 +20,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.search_categories(event_category)
-    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and category like '%#{event_category}'",Date.today])
+    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and category ~* '%#{event_category}'",Date.today])
     events.to_json()
   end
 
