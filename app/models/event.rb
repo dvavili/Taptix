@@ -19,6 +19,16 @@ class Event < ActiveRecord::Base
     Event.find(:all, :order=>"date desc", :conditions=>['date > ? and user_id = ?',Date.today,user_id])
   end
 
+  def self.search_categories(event_category)
+    events = Event.find(:all, :order=>"date desc", :conditions=>['date > ? and category = ?',Date.today,event_category])
+    events.to_json()
+  end
+
+  def self.search_events(event_title)
+    events = Event.find(:all, :order=>"date desc", :conditions=>['date > ? and title = ?',Date.today,event_title])
+    events.to_json()
+  end
+
   private
   def price_must_be_atleast_a_cent
     errors.add(:price,'should be a digit and atleast 0.01') if !price.blank? && price<0.01

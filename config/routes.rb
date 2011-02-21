@@ -2,11 +2,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :event_registrations
 
   map.devise_for :users
-     map.create_event 'users/:user_id/events/create_event',:controller => 'events', :action => 'create_event'
-     map.show_user_events 'events/show_user_events/:id',:controller=>'events',:action=>'show_user_events'
-     map.register_for_event 'event_registrations/:event_id/:appln_id',:controller => 'event_registrations', :action => 'register'
-#     map.show_event 'events/:event_id', :controller => 'events', :action => 'show_event'
-     map.connect 'show_all_events',:controller => 'events',:action=>'show_all_events'
+  map.create_event 'users/:user_id/events/create_event',:controller => 'events', :action => 'create_event'
+  map.show_user_events 'events/show_user_events/:id',:controller=>'events',:action=>'show_user_events'
+  map.register_for_event 'event_registrations/:event_id/:appln_id',:controller => 'event_registrations', :action => 'register'
+  #     map.show_event 'events/:event_id', :controller => 'events', :action => 'show_event'
+  map.event_search "search.:format", :controller=>"events",:action=>"event_search"
+  map.tag_search "tag_search.:format", :controller=>"events",:action=>"category_search"
+  map.connect 'show_all_events',:controller => 'events',:action=>'show_all_events'
 
   map.resources :users, :has_many => [:events]
   map.resources :events, :has_many => [:registrations]

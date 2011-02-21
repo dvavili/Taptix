@@ -20,6 +20,10 @@
         <% end %>
       </li>
       <li><%= link_to "Sign up", new_user_registration_path %></li>
+      <li><% form_tag(event_search_path, :method => "get") do %>
+          <%= text_field_tag :search%>
+          <%= submit_tag "Search"%>
+        <%end%></li>
       <!-- END MENU -->
     </ul>
   </div>
