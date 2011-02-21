@@ -984,3 +984,15 @@ Processing EventsController#event_search (for 127.0.0.1 at 2011-02-21 10:56:32) 
   Parameters: {"commit"=>"Search", "search"=>"google"}
   [4;35;1mEvent Load (4.1ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-21' and title like '%google%') ORDER BY date desc[0m
 Completed in 156ms (View: 2, DB: 4) | 200 OK [http://localhost/search?search=google&commit=Search]
+
+
+Processing EventsController#event_search (for 127.0.0.1 at 2011-02-21 11:43:24) [GET]
+  Parameters: {"commit"=>"Search", "search"=>"google"}
+  [4;36;1mEvent Load (2.3ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-21' and title like '%google%') ORDER BY date desc[0m
+Completed in 58ms (View: 4, DB: 2) | 200 OK [http://localhost/search?search=google&commit=Search]
+
+
+Processing EventsController#event_search (for 127.0.0.1 at 2011-02-21 11:45:26) [GET]
+  Parameters: {"commit"=>"Search", "search"=>"info"}
+  [4;35;1mEvent Load (2.1ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-21' and title like '%info%') ORDER BY date desc[0m
+Completed in 57ms (View: 2, DB: 2) | 200 OK [http://localhost/search?search=info&commit=Search]
