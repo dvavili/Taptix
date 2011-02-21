@@ -30,7 +30,7 @@
         <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.contact %><br/>
         <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.date %><br/>
         <%if !event.price.nil? && !event.price.blank? && event.price != 0 %>
-          <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.price %><br/>
+          <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h number_to_currency(event.price) %><br/>
         <%else%>
           <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free<br/>
         <%end%>
