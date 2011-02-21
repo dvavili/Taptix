@@ -44,6 +44,16 @@ class EventsController < ApplicationController
     end
   end
 
+  def relevant_event_search
+    @events = Event.search_relevant_events(params[:search].strip,params[:latitude],params[:longitude])
+    respond_to do |format|
+#      format.html #"show_all_events.html.erb"
+#      format.xml  { render :xml => @events }
+      format.json { render :json=>@events }
+    end
+  end
+
+
   def category_search
     @events = Event.search_categories(params[:tag].strip)
     logger.debug("#{params[:tag]}")

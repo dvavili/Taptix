@@ -9,7 +9,7 @@ class Event < ActiveRecord::Base
   validate :validate_fields
   validate :geocode_address
 
-  #  acts_as_mappable :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
+  acts_as_mappable :lat_column_name => :lat, :lng_column_namr => :lng
   
   def self.find_all_events 
     Event.find(:all, :order=>"date asc", :conditions=>['date > ?',Date.today])
@@ -19,13 +19,23 @@ class Event < ActiveRecord::Base
     Event.find(:all, :order=>"date asc", :conditions=>['date > ? and user_id = ?',Date.today,user_id])
   end
 
-  def self.search_categories(event_category)
+  def self.search_categories(event_category, latitude, longitude)
     events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and category ~* '%#{event_category}'",Date.today])
+    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    events.sort_by_distance_from(user_loc)
     events.to_json()
   end
 
+
   def self.search_events(event_title)
     events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and title ~* '#{event_title}'",Date.today])
+    events.to_json()
+  end
+
+  def self.search_relevant_events(event_title, latitude, longitude)
+    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and title ~* '#{event_title}'",Date.today])
+    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    events.sort_by_distance_from(user_loc)
     events.to_json()
   end
 

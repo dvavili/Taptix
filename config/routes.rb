@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   map.register_for_event 'event_registrations/:event_id/:appln_id.:format',:controller => 'event_registrations', :action => 'register'
   map.validate_registration 'validate_registration/:event_id/:appln_id/:confirmation.:format',:controller => 'event_registrations', :action => 'validate_registration'
   map.event_search "search.:format", :controller=>"events",:action=>"event_search"
+  map.relevant_event_search "relevant_search.:format", :controller=>"events",:action=>"relevant_event_search"
   map.tag_search "tag_search.:format", :controller=>"events",:action=>"category_search"
   map.connect 'show_all_events',:controller => 'events',:action=>'show_all_events'
 
