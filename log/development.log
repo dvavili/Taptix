@@ -925,3 +925,12 @@ Rendering events/show_all_events
   [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
 Rendered layouts/_common_header (2.7ms)
 Completed in 137ms (View: 92, DB: 12) | 200 OK [http://localhost/]
+
+
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-21 10:35:56) [GET]
+  [4;35;1mEvent Load (8.0ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-21') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
+Rendered layouts/_common_header (3.0ms)
+Completed in 167ms (View: 119, DB: 9) | 200 OK [http://localhost/]

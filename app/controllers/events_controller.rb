@@ -146,7 +146,8 @@ class EventsController < ApplicationController
   end
 
   def show_all_events
-    @events = (Event.find_all_events).paginate(:per_page => 5, :page => params[:page])
+    @events = Event.find_all_events
+#    @events = (Event.find_all_events).paginate(:per_page => 5, :page => params[:page])
     
     respond_to do |format|
       format.html # show_all_events.html.erb
@@ -156,7 +157,8 @@ class EventsController < ApplicationController
   end
 
     def show_user_events
-    @events = (Event.find_user_events(params[:id])).paginate(:per_page => 5, :page => params[:page])
+    @events = Event.find_user_events(params[:id])
+#    @events = (Event.find_user_events(params[:id])).paginate(:per_page => 5, :page => params[:page])
 
     respond_to do |format|
       format.html # show_all_events.html.erb
