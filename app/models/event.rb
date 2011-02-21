@@ -12,11 +12,11 @@ class Event < ActiveRecord::Base
   #  acts_as_mappable :auto_geocode=>{:field=>:address, :error_message=>'Could not geocode address'}
   
   def self.find_all_events 
-    Event.find(:all, :order=>"date desc", :conditions=>['date > ?',Date.today])
+    Event.find(:all, :order=>"date asc", :conditions=>['date > ?',Date.today])
   end
 
   def self.find_user_events(user_id)
-    Event.find(:all, :order=>"date desc", :conditions=>['date > ? and user_id = ?',Date.today,user_id])
+    Event.find(:all, :order=>"date asc", :conditions=>['date > ? and user_id = ?',Date.today,user_id])
   end
 
   def self.search_categories(event_category)

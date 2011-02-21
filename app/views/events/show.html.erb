@@ -1,10 +1,19 @@
+<%if user_signed_in?%>
+  <%if @event.user == current_user%>
+    <%= link_to 'Edit', edit_user_event_path(:user_id => params[:user_id], :id=> @event) %> |
+  <%end%>
+  <%= link_to 'Back', user_events_path(:user_id => params[:user_id]) %>
+<%else%>
+  <%= link_to 'Back', :controller=>:events, :action=>:show_all_events %>
+<%end%>
+
 <table>
   <tr>
     <td width="20%">
       <%if @event.image_link.nil? or @event.image_link.blank?%>
-      <%= link_to "No poster", @event %>
+        <%= link_to "No poster", @event %>
       <%else%>
-      <%if user_signed_in?%>
+        <%if user_signed_in?%>
           <%= link_to (image_tag @event.image_link, :width=>"150", :height=>"150",:border=>0),user_event_path(:user_id => @event.user.id, :id=> @event)%>
         <%else%>
           <%= link_to (image_tag @event.image_link, :width=>"150", :height=>"150",:border=>0),@event%>
@@ -26,7 +35,7 @@
       <b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.address %><br/>
       <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.contact %><br/>
       <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.date %><br/>
-      <%if !@event.price.nil? && !@event.price.blank?%>
+      <%if !@event.price.nil? && !@event.price.blank? && @event.price != 0 %>
         <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.price %><br/>
       <%else%>
         <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Free<br/>
@@ -34,10 +43,3 @@
     </td>
   </tr>
 </table>
-
-<%if user_signed_in?%>
-  <%= link_to 'Edit', edit_user_event_path(:user_id => params[:user_id], :id=> @event) %> |
-  <%= link_to 'Back', user_events_path(:user_id => params[:user_id]) %>
-<%else%>
-  <%= link_to 'Back', :controller=>:events, :action=>:show_all_events %>
-<%end%>

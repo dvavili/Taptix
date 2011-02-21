@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110221012544) do
+ActiveRecord::Schema.define(:version => 20110221164821) do
 
   create_table "event_registrations", :force => true do |t|
     t.integer   "event_id"
@@ -21,22 +21,22 @@ ActiveRecord::Schema.define(:version => 20110221012544) do
   end
 
   create_table "events", :force => true do |t|
-    t.string    "web_page_link"
-    t.string    "image_link"
-    t.string    "video_link"
-    t.timestamp "date"
-    t.string    "contact"
-    t.decimal   "price"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.integer   "number_of_hits"
-    t.integer   "user_id"
-    t.string    "address"
-    t.decimal   "lng"
-    t.decimal   "lat"
-    t.string    "title"
-    t.string    "description"
-    t.string    "category"
+    t.string   "web_page_link"
+    t.string   "image_link"
+    t.string   "video_link"
+    t.datetime "date"
+    t.string   "contact"
+    t.decimal  "price"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "number_of_hits"
+    t.integer  "user_id"
+    t.string   "address"
+    t.decimal  "lng"
+    t.decimal  "lat"
+    t.string   "title"
+    t.text     "description",    :limit => 255
+    t.string   "category"
   end
 
   create_table "users", :force => true do |t|
