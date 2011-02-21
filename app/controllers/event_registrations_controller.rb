@@ -44,7 +44,6 @@ class EventRegistrationsController < ApplicationController
 
     respond_to do |format|
       if @event_registration.save
-        logger.info "true"
         format.html { redirect_to(@event_registration, :notice => 'EventRegistration was successfully created.') }
         format.xml  { render :xml => @event_registration, :status => :created, :location => @event_registration }
       else
@@ -57,12 +56,14 @@ class EventRegistrationsController < ApplicationController
   # POST /event_registrations
   # POST /event_registrations.xml
   def register
-    @event_registration = EventRegistration.new(params[:event_registration])
-    success = false
+    @event_registration = EventRegistration.new
+    @event_registration.event_id = params[:event_id]
+    @event_registration.application_id = params[:appln_id]
+    respond_to do |format|
       if @event_registration.save
-        success = true
+        format.json { render :json=>@event_registration.confirmation }
       end
-    success
+    end
   end
 
   # PUT /event_registrations/1

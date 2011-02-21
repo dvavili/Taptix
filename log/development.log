@@ -1,73 +1,19 @@
 
 
-Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-20 16:08:21) [GET]
-  [4;36;1mEvent Load (4.0ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-20') ORDER BY date desc[0m
-Rendering template within layouts/events
-Rendering events/show_all_events
-  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
-Rendered layouts/_common_header (10.5ms)
-Completed in 138ms (View: 105, DB: 6) | 200 OK [http://localhost/]
+Processing EventRegistrationsController#register (for 127.0.0.1 at 2011-02-20 17:04:17) [GET]
+  Parameters: {"appln_id"=>"223", "event_id"=>"1"}
+  [4;35;1mEventRegistration Create (0.5ms)[0m   [0mINSERT INTO "event_registrations" ("created_at", "confirmation", "event_id", "application_id", "updated_at") VALUES('2011-02-21 01:04:17', '285006b11ef9cb9818df119250898f804983be2e', 1, 223, '2011-02-21 01:04:17')[0m
+285006b11ef9cb9818df119250898f804983be2e
+
+ActionView::MissingTemplate (Missing template event_registrations/register.erb in view path app/views:/usr/lib/ruby/gems/1.8/gems/devise-1.0.8/app/views):
+  warden (0.10.7) lib/warden/manager.rb:35:in `call'
+  warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+  warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendering rescues/layout (internal_server_error)
 
 
-Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-20 16:08:22) [GET]
-  [4;36;1mEvent Load (2.2ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-20') ORDER BY date desc[0m
-Rendering template within layouts/events
-Rendering events/show_all_events
-  [4;35;1mUser Load (1.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
-Rendered layouts/_common_header (3.9ms)
-Completed in 105ms (View: 69, DB: 4) | 200 OK [http://localhost/]
-
-
-Processing EventsController#category_search (for 127.0.0.1 at 2011-02-20 16:08:27) [POST]
-  Parameters: {"commit"=>"Search", "authenticity_token"=>"SnnL+EYVR9CmYOYzPAwWT5TDeL5GUL/fgZqasScsVtg=", "tag"=>"Info sessions"}
-  [4;36;1mEvent Load (4.3ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-20' and category = 'Info sessions') ORDER BY date desc[0m
-Info sessions
-Completed in 57ms (View: 2, DB: 4) | 200 OK [http://localhost/tag_search]
-
-
-Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-20 16:09:03) [GET]
-  [4;35;1mEvent Load (4.2ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-20') ORDER BY date desc[0m
-Rendering template within layouts/events
-Rendering events/show_all_events
-  [4;36;1mUser Load (10.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
-Rendered layouts/_common_header (27.2ms)
-Completed in 302ms (View: 225, DB: 14) | 200 OK [http://localhost/]
-
-
-Processing EventsController#event_search (for 127.0.0.1 at 2011-02-20 16:09:10) [POST]
-  Parameters: {"commit"=>"Search", "authenticity_token"=>"SnnL+EYVR9CmYOYzPAwWT5TDeL5GUL/fgZqasScsVtg=", "search"=>"Google IO"}
-  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-20' and title = 'Google IO') ORDER BY date desc[0m
-Completed in 124ms (View: 9, DB: 2) | 200 OK [http://localhost/search]
-
-
-Processing EventsController#event_search (for 127.0.0.1 at 2011-02-20 16:23:54) [POST]
-  Parameters: {"commit"=>"Search", "authenticity_token"=>"SnnL+EYVR9CmYOYzPAwWT5TDeL5GUL/fgZqasScsVtg=", "search"=>"Google IO"}
-  [4;36;1mEvent Load (1.7ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-20' and title = 'Google IO') ORDER BY date desc[0m
-Completed in 129ms (View: 1, DB: 2) | 200 OK [http://localhost/search]
-
-
-Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-20 16:26:18) [GET]
-  [4;35;1mEvent Load (1.8ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-20') ORDER BY date desc[0m
-Rendering template within layouts/events
-Rendering events/show_all_events
-  [4;36;1mUser Load (9.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = '1') LIMIT 1[0m
-Rendered layouts/_common_header (14.2ms)
-Completed in 221ms (View: 152, DB: 12) | 200 OK [http://localhost/]
-
-
-Processing EventsController#event_search (for 127.0.0.1 at 2011-02-20 16:26:24) [GET]
-  Parameters: {"commit"=>"Search", "search"=>"Info sessions"}
-  [4;35;1mEvent Load (0.8ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-20' and title = 'Info sessions') ORDER BY date desc[0m
-Completed in 27ms (View: 5, DB: 1) | 200 OK [http://localhost/search?search=Info+sessions&commit=Search]
-
-
-Processing EventsController#event_search (for 127.0.0.1 at 2011-02-20 16:26:49) [GET]
-  Parameters: {"commit"=>"Search", "search"=>"Google IO"}
-  [4;36;1mEvent Load (9.2ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-20' and title = 'Google IO') ORDER BY date desc[0m
-Completed in 117ms (View: 2, DB: 9) | 200 OK [http://localhost/search?search=Google+IO&commit=Search]
-
-
-Processing EventsController#event_search (for 127.0.0.1 at 2011-02-20 16:27:21) [GET]
-  Parameters: {"commit"=>"Search", "search"=>"Google IO"}
-  [4;35;1mEvent Load (1.6ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-20' and title = 'Google IO') ORDER BY date desc[0m
-Completed in 51ms (View: 3, DB: 2) | 200 OK [http://localhost/search?search=Google+IO&commit=Search]
+Processing EventRegistrationsController#register (for 127.0.0.1 at 2011-02-20 17:10:22) [GET]
+  Parameters: {"appln_id"=>"224", "event_id"=>"1"}
+  [4;36;1mEventRegistration Create (1.0ms)[0m   [0;1mINSERT INTO "event_registrations" ("created_at", "confirmation", "event_id", "application_id", "updated_at") VALUES('2011-02-21 01:10:22', 'a5bfad8dd9573e63372fd94cb6969e2842ff9e46', 1, 224, '2011-02-21 01:10:22')[0m
+Completed in 74ms (View: 10, DB: 1) | 200 OK [http://localhost/event_registrations/1/224]
