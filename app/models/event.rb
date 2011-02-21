@@ -31,7 +31,7 @@ class Event < ActiveRecord::Base
 
   private
   def price_must_be_atleast_a_cent
-    errors.add(:price,'should be a digit and atleast 0.01') if !price.blank? && price<0.01
+    errors.add(:price,'should be a digit and atleast 0.01') if !price.blank? && price<0.0
   end
 
   def validate_fields
