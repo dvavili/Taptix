@@ -1945,3 +1945,7 @@ Google geocoding. Address: abc san francisco. Result: <?xml version="1.0" encodi
     <Point><coordinates>-122.4524712,37.7554858,0</coordinates></Point>
   </Placemark>
 </Response></kml>
+  [4;36;1mEvent Load (8.4ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-21' and (title like '%Ca%' or description like '%Ca%' or address like '%Ca%' or category like '%Ca%')) ORDER BY date asc[0m
+  [4;35;1mEvent Load (1.2ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-21' and (title like '%schlum%' or description like '%schlum%' or address like '%schlum%' or category like '%schlum%')) ORDER BY date asc[0m
+  [4;36;1mEvent Load (3.0ms)[0m   [0;1mSELECT title,category,address,description FROM "events" WHERE (date > '2011-02-21' and (title like '%schlum%' or description like '%schlum%' or address like '%schlum%' or category like '%schlum%')) ORDER BY date asc[0m
+  [4;35;1mEvent Load (2.1ms)[0m   [0mSELECT title,category,address,description FROM "events" WHERE (date > '2011-02-21' and (title like '%info%' or description like '%info%' or address like '%info%' or category like '%info%')) ORDER BY date asc[0m
