@@ -19,9 +19,10 @@ class Event < ActiveRecord::Base
     Event.find(:all, :order=>"date asc", :conditions=>['date > ? and user_id = ?',Date.today,user_id])
   end
 
-  def self.search_categories(event_category, latitude, longitude)
+  def self.search_categories(event_category, address)
     events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and category ~* '#{event_category}'",Date.today])
-    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    #    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    user_loc = Geokit::Geocoders::MultiGeocoder.geocode(address)
     events.sort_by_distance_from(user_loc)
     events.to_json()
   end
@@ -32,9 +33,10 @@ class Event < ActiveRecord::Base
     events.to_json()
   end
 
-  def self.search_relevant_events(event_title, latitude, longitude)
+  def self.search_relevant_events(event_title, address)
     events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and title ~* '#{event_title}'",Date.today])
-    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    #    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    user_loc = Geokit::Geocoders::MultiGeocoder.geocode(address)
     events.sort_by_distance_from(user_loc)
     events.to_json()
   end

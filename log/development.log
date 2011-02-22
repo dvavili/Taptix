@@ -1799,3 +1799,149 @@ Rendering events/new
   [4;35;1mUser Load (3.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
 Rendered layouts/_common_header (8.6ms)
 Completed in 166ms (View: 74, DB: 5) | 200 OK [http://localhost/users/1/events/new]
+Google geocoding. Address: San Francisco. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>San Francisco</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>San Francisco, CA, USA</address>
+    <AddressDetails Accuracy="4" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>San Francisco</SubAdministrativeAreaName><Locality><LocalityName>San Francisco</LocalityName></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.8120000" south="37.7034000" east="-122.3482000" west="-122.5270000" />
+    </ExtendedData>
+    <Point><coordinates>-122.4194155,37.7749295,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+Google geocoding. Address: Divya. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>Divya</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Divya, ganga, Sahibabad Industrial Area, Ghaziabad, Uttar Pradesh, India</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>IN</CountryNameCode><CountryName>India</CountryName><AdministrativeArea><AdministrativeAreaName>उत्तर प्रदेश</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Ghaziabad</SubAdministrativeAreaName><Locality><LocalityName>Ghaziabad</LocalityName><DependentLocality><DependentLocalityName>Sahibabad Industrial Area</DependentLocalityName><Thoroughfare><ThoroughfareName>Divya, ganga</ThoroughfareName></Thoroughfare><AddressLine>Divya</AddressLine></DependentLocality></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="28.6876344" south="28.6680559" east="77.3710591" west="77.3390443" />
+    </ExtendedData>
+    <Point><coordinates>77.3550517,28.6778456,0</coordinates></Point>
+  </Placemark>
+  <Placemark id="p2">
+    <address>Divya, Bharat Nagar, Madipakkam, Chennai, Tamil Nadu 600117, India</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>IN</CountryNameCode><CountryName>India</CountryName><AdministrativeArea><AdministrativeAreaName>Tamil Nadu</AdministrativeAreaName><Locality><LocalityName>Chennai</LocalityName><Thoroughfare><ThoroughfareName>Divya</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>600117</PostalCodeNumber></PostalCode><AddressLine>Divya</AddressLine></Locality></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="12.9670425" south="12.9607473" east="80.1906936" west="80.1843984" />
+    </ExtendedData>
+    <Point><coordinates>80.1875460,12.9638949,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+Google geocoding. Address: abc. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>abc</name>
+  <Status>
+    <code>602</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: abc
+Geocoder.us geocoding. Address: abc. Result: 2: couldn't find this address! sorry
+geocoder.us was unable to geocode address: abc
+Google geocoding. Address: google. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>google</name>
+  <Status>
+    <code>602</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: google
+Geocoder.us geocoding. Address: google. Result: 2: couldn't find this address! sorry
+geocoder.us was unable to geocode address: google
+Google geocoding. Address: cisco. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>cisco</name>
+  <Status>
+    <code>602</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: cisco
+Geocoder.us geocoding. Address: cisco. Result: 2: couldn't find this address! sorry
+geocoder.us was unable to geocode address: cisco
+Google geocoding. Address: pittsbugh. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>pittsbugh</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Pittsburgh, PA, USA</address>
+    <AddressDetails Accuracy="4" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>PA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Allegheny</SubAdministrativeAreaName><Locality><LocalityName>Pittsburgh</LocalityName></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.5085273" south="40.3726536" east="-79.8678270" west="-80.1239458" />
+    </ExtendedData>
+    <Point><coordinates>-79.9958864,40.4406248,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+Google geocoding. Address: chenai. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>chenai</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Chennai, Tamil Nadu, India</address>
+    <AddressDetails Accuracy="4" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>IN</CountryNameCode><CountryName>India</CountryName><AdministrativeArea><AdministrativeAreaName>Tamil Nadu</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Chennai</SubAdministrativeAreaName><Locality><LocalityName>Chennai</LocalityName></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="13.1473615" south="12.9734519" east="80.3776424" west="80.1215236" />
+    </ExtendedData>
+    <Point><coordinates>80.2495830,13.0604220,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+Google geocoding. Address: pop san francisco. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>pop san francisco</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>Pop-A-Lock, 601 Van Ness Ave, San Francisco, CA 94109, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>San Francisco</SubAdministrativeAreaName><Locality><LocalityName>San Francisco</LocalityName><Thoroughfare><ThoroughfareName>Pop-A-Lock, 601 Van Ness Ave</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>94109</PostalCodeNumber></PostalCode><AddressLine>Pop-A-Lock</AddressLine></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.7973224" south="37.7796866" east="-122.4058266" west="-122.4378414" />
+    </ExtendedData>
+    <Point><coordinates>-122.4218340,37.7885050,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+Google geocoding. Address: abc. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>abc</name>
+  <Status>
+    <code>602</code>
+    <request>geocode</request>
+  </Status>
+</Response></kml>
+Google was unable to geocode address: abc
+Google geocoding. Address: abc san francisco. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>abc san francisco</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>KGO-TV, San Francisco, CA 94131, USA</address>
+    <AddressDetails Accuracy="9" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>CA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>San Francisco</SubAdministrativeAreaName><Locality><LocalityName>San Francisco</LocalityName><Thoroughfare><ThoroughfareName>KGO-TV</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>94131</PostalCodeNumber></PostalCode><AddressLine>KGO-TV</AddressLine></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="37.7643071" south="37.7466634" east="-122.4364638" west="-122.4684786" />
+    </ExtendedData>
+    <Point><coordinates>-122.4524712,37.7554858,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
