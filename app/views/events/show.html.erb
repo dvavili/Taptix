@@ -2,7 +2,7 @@
   <%if @event.user == current_user%>
     <%= link_to 'Edit', edit_user_event_path(:user_id => params[:user_id], :id=> @event) %> |
   <%end%>
-  <%= link_to 'Back', user_events_path(:user_id => params[:user_id]) %>
+  <%= link_to 'Back', show_user_events_path(current_user) %>
 <%else%>
   <%= link_to 'Back', :controller=>:events, :action=>:show_all_events %>
 <%end%>

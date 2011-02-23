@@ -29,8 +29,8 @@ class Event < ActiveRecord::Base
 
 
   def self.search_events(event_title)
-    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and (title ~* '#{event_title}' or description ~* '#{event_title}' or address ~* '#{event_title}' or category ~* '#{event_title}')",Date.today])
-    events.to_json()
+    #    Event.find(:all, :order=>"date asc", :conditions=>["date > ? and (title like '%#{event_title}%' or description like '%#{event_title}%' or address like '%#{event_title}%' or category like '%#{event_title}%')",Date.today])
+    Event.find(:all, :order=>"date asc", :conditions=>["date > ? and (title ~* '#{event_title}' or description ~* '#{event_title}' or address ~* '#{event_title}' or category ~* '#{event_title}')",Date.today])
   end
 
   def self.search_relevant_events(event_title, address)

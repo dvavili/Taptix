@@ -5,6 +5,8 @@ class EventsController < ApplicationController
   def index
     
     @events = Event.find_all_events
+    user_loc = Geokit::Geocoders::MultiGeocoder.geocode(params[:address])
+    @events.sort_by_distance_from(user_loc)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -38,6 +40,7 @@ class EventsController < ApplicationController
   def event_search
     @events = Event.search_events(params[:search].strip)
     respond_to do |format|
+      format.html { render 'show_all_events.html.erb' }
 #      format.html #"show_all_events.html.erb"
 #      format.xml  { render :xml => @events }
       format.json { render :json=>@events }
