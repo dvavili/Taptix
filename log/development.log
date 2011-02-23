@@ -2233,3 +2233,175 @@ Rendering events/show_user_events
   [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
 Rendered layouts/_common_header (3.2ms)
 Completed in 117ms (View: 77, DB: 9) | 200 OK [http://localhost/events/show_user_events/1]
+
+
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-22 17:06:50) [GET]
+  [4;36;1mEvent Load (9.6ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-22') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (1.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+ActionView::TemplateError (undefined method `button_tag' for #<ActionView::Base:0xb702e1b4>) on line #2 of app/views/events/show_all_events.html.erb:
+1: <%if user_signed_in?%>
+2:   <%= button_tag 'New event', new_user_event_path(current_user) %>
+3: <%end%>
+4: 
+5: <h1>Events</h1>
+
+    app/views/events/show_all_events.html.erb:2
+    app/controllers/events_controller.rb:165:in `show_all_events'
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendered rescues/_trace (110.1ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-22 17:07:08) [GET]
+  [4;35;1mEvent Load (10.8ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;36;1mUser Load (4.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mUser Load (1.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered layouts/_common_header (2.8ms)
+Completed in 252ms (View: 181, DB: 19) | 200 OK [http://localhost/show_all_events]
+
+
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-02-22 17:07:15) [GET]
+  [4;36;1mEvent Load (8.0ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-02-22') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered layouts/_common_header (3.5ms)
+Completed in 212ms (View: 163, DB: 12) | 200 OK [http://localhost/show_all_events]
+
+
+Processing EventsController#show_user_events (for 127.0.0.1 at 2011-02-22 17:07:53) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (5.5ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22' and user_id = '1') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_user_events
+  [4;36;1mUser Load (1.5ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.4ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (3.5ms)
+Completed in 251ms (View: 214, DB: 8) | 200 OK [http://localhost/events/show_user_events/1]
+
+
+Processing EventsController#show_user_events (for 127.0.0.1 at 2011-02-22 17:08:26) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (6.1ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22' and user_id = '1') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_user_events
+  [4;36;1mUser Load (5.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (12.1ms)
+Completed in 175ms (View: 126, DB: 13) | 200 OK [http://localhost/events/show_user_events/1]
+
+
+Processing EventsController#show_user_events (for 127.0.0.1 at 2011-02-22 17:08:45) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (3.4ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22' and user_id = '1') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_user_events
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (4.6ms)
+Completed in 130ms (View: 96, DB: 6) | 200 OK [http://localhost/events/show_user_events/1]
+
+
+Processing EventsController#show_user_events (for 127.0.0.1 at 2011-02-22 17:08:47) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (15.9ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22' and user_id = '1') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_user_events
+  [4;36;1mUser Load (2.6ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (2.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (6.0ms)
+Completed in 249ms (View: 108, DB: 21) | 200 OK [http://localhost/events/show_user_events/1]
+
+
+Processing EventsController#show_user_events (for 127.0.0.1 at 2011-02-22 17:10:34) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (3.3ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22' and user_id = '1') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_user_events
+  [4;36;1mUser Load (3.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (3.2ms)
+Completed in 139ms (View: 100, DB: 8) | 200 OK [http://localhost/events/show_user_events/1]
+
+
+Processing EventsController#show_user_events (for 127.0.0.1 at 2011-02-22 17:10:37) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mEvent Load (2.6ms)[0m   [0mSELECT * FROM "events" WHERE (date > '2011-02-22' and user_id = '1') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_user_events
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (6.2ms)
+Completed in 343ms (View: 138, DB: 5) | 200 OK [http://localhost/events/show_user_events/1]
