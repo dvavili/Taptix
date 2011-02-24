@@ -67,6 +67,14 @@ class EventsController < ApplicationController
     end
   end
 
+  def push_notifications
+    @events = Event.push_notification(params[:address])
+    respond_to do |format|
+#      format.html #"show_all_events.html.erb"
+#      format.xml  { render :xml => @events }
+      format.json { render :json=>@events }
+    end
+  end
 
   # GET /events/new
   # GET /events/new.xml

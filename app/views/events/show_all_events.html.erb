@@ -1,5 +1,5 @@
 <%if user_signed_in?%>
-  <%= button_to 'New event', new_user_event_path(current_user) %><br/>
+  <%= link_to 'New event', new_user_event_path(current_user) %><br/>
 <%end%>
 
 <h1>Events</h1>

@@ -27,6 +27,14 @@ class Event < ActiveRecord::Base
     events.to_json()
   end
 
+  def self.push_notification(address)
+    events = Event.find(:all, :order=>"date asc", :conditions=>["created_at > ?",6.hours.ago])
+    #    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
+    user_loc = Geokit::Geocoders::MultiGeocoder.geocode(address)
+    events.sort_by_distance_from(user_loc)
+    events.to_json()
+  end
+
 
   def self.search_events(event_title)
     #    Event.find(:all, :order=>"date asc", :conditions=>["date > ? and (title like '%#{event_title}%' or description like '%#{event_title}%' or address like '%#{event_title}%' or category like '%#{event_title}%')",Date.today])

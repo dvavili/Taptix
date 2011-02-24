@@ -8,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.event_search "search.:format", :controller=>"events",:action=>"event_search"
   map.relevant_event_search "relevant_search.:format", :controller=>"events",:action=>"relevant_event_search"
   map.tag_search "tag_search.:format", :controller=>"events",:action=>"category_search"
+  map.push_notifications "push_notifications.:format", :controller=>"events",:action=>"push_notifications"
   map.connect 'show_all_events',:controller => 'events',:action=>'show_all_events'
 
   map.resources :users, :has_many => [:events]
