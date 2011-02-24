@@ -34,7 +34,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.search_relevant_events(event_title, address)
-    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and title ~* '#{event_title}'",Date.today])
+    events = Event.find(:all, :order=>"date asc", :conditions=>["date > ? and (title ~* '#{event_title}' or description ~* '#{event_title}' or address ~* '#{event_title}' or category ~* '#{event_title}')",Date.today])
     #    user_loc = Geokit::Geocoders::GoogleGeocoder.reverse_geocode "#{latitude},#{longitude}"
     user_loc = Geokit::Geocoders::MultiGeocoder.geocode(address)
     events.sort_by_distance_from(user_loc)
