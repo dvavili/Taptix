@@ -38,3 +38,7 @@
     </tr>
   <% end %>
 </table>
+
+<%if user_signed_in?%>
+  <%= link_to 'Clear All Event Registrations', clear_all_event_reg_path() %><br/>
+<%end%>

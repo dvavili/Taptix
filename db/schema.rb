@@ -21,22 +21,22 @@ ActiveRecord::Schema.define(:version => 20110221164821) do
   end
 
   create_table "events", :force => true do |t|
-    t.string   "web_page_link"
-    t.string   "image_link"
-    t.string   "video_link"
-    t.datetime "date"
-    t.string   "contact"
-    t.decimal  "price"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "number_of_hits"
-    t.integer  "user_id"
-    t.string   "address"
-    t.decimal  "lng"
-    t.decimal  "lat"
-    t.string   "title"
-    t.text     "description",    :limit => 255
-    t.string   "category"
+    t.string    "web_page_link"
+    t.string    "image_link"
+    t.string    "video_link"
+    t.timestamp "date"
+    t.string    "contact"
+    t.decimal   "price"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "number_of_hits"
+    t.integer   "user_id"
+    t.string    "address"
+    t.decimal   "lng"
+    t.decimal   "lat"
+    t.string    "title"
+    t.text      "description"
+    t.string    "category"
   end
 
   create_table "users", :force => true do |t|

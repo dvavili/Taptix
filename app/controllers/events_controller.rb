@@ -187,4 +187,9 @@ class EventsController < ApplicationController
       format.json { render :json=>@events }
     end
   end
+
+    def clear_all_event_reg
+      EventRegistration.delete_all()
+      redirect_to :controller => 'events',:action=>'show_all_events'
+    end
 end

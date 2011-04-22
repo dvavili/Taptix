@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
 
   map.devise_for :users
+  map.clear_all_event_reg 'events/clear_all_event_reg',:controller => 'events', :action=> 'clear_all_event_reg'
   map.create_event 'users/:user_id/events/create_event',:controller => 'events', :action => 'create_event'
   map.show_user_events 'events/show_user_events/:id',:controller=>'events',:action=>'show_user_events'
   map.register_for_event 'event_registrations/:event_id/:appln_id.:format',:controller => 'event_registrations', :action => 'register'
