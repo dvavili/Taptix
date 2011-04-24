@@ -36,6 +36,9 @@
         <b>Category:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.category %><br/>
         <b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.address %><br/>
         <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.contact %><br/>
+        <%if !event.extra.nil? && !event.extra.blank?%>
+        <b>Extra information: </b><%=h event.extra%><br/>
+        <%end%>
         <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h event.date %><br/>
         <%if !event.price.nil? && !event.price.blank?%>
           <b>Entry Fee:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h number_to_currency(event.price) %><br/>

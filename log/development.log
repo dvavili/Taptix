@@ -3069,3 +3069,304 @@ Rendering events/show_all_events
   [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
 Rendered layouts/_common_header (4.2ms)
 Completed in 110ms (View: 75, DB: 8) | 200 OK [http://localhost/show_all_events]
+  [4;36;1mSQL (26.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (5.6ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateEvents (20110204220808)
+Migrating to AddNumberOfHitsToEvents (20110204221135)
+Migrating to AddUserIdToEvents (20110204222907)
+Migrating to DeviseCreateUsers (20110212210754)
+Migrating to AddAddressToEvent (20110213143051)
+Migrating to AddLongitudeToEvent (20110213221619)
+Migrating to AddLatitudeToEvent (20110213221632)
+Migrating to CreateEventRegistrations (20110218191658)
+Migrating to AddTitleToEvent (20110219223904)
+Migrating to AddDescriptionToEvent (20110219223932)
+Migrating to AddCategoryToEvent (20110220211028)
+Migrating to AddConfirmationCodeToEventRegistration (20110221004327)
+Migrating to AddAttendedToEventRegistration (20110221012544)
+Migrating to ChangeColumn (20110221164821)
+Migrating to AddExtraInformationToEvent (20110424143635)
+  [4;36;1mSQL (0.8ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mALTER TABLE "events" ADD "extra" varchar(255)[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20110424143635')[0m
+  [4;35;1mSQL (0.9ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_list("event_registrations")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mPRAGMA index_list("events")[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mPRAGMA index_list("users")[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-04-24 07:40:23) [GET]
+  [4;36;1mEvent Load (4.6ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-04-24') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;35;1mUser Load (1.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;35;1mUser Load (2.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered layouts/_common_header (6.9ms)
+Completed in 184ms (View: 142, DB: 9) | 200 OK [http://localhost/]
+
+
+Processing EventsController#new (for 127.0.0.1 at 2011-04-24 07:40:29) [GET]
+  Parameters: {"user_id"=>"1"}
+  [4;35;1mUser Load (1.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/events
+Rendering events/new
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_common_header (2.8ms)
+Completed in 261ms (View: 140, DB: 2) | 200 OK [http://localhost/users/1/events/new]
+
+
+Processing EventsController#create (for 127.0.0.1 at 2011-04-24 07:43:57) [POST]
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"QHz2h2H8/0of4ZIMrUZN939NC20GoaDDj5BpiW0fjTc=", "user_id"=>"1", "event"=>{"address"=>"2123 Shady svenue, Squirrel Hill, Pittsburgh, PA 15217", "web_page_link"=>"http://www.google.com", "category"=>"Info sessions", "title"=>"Checking extra", "contact"=>"", "date"=>"April 27, 2011 7:43 AM", "video_link"=>"", "description"=>"desription", "extra"=>"Extra information", "image_link"=>""}, "reg"=>"n"}
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Google geocoding. Address: 2123 Shady svenue, Squirrel Hill, Pittsburgh, PA 15217. Result: <?xml version="1.0" encoding="UTF-8" ?>
+<kml xmlns="http://earth.google.com/kml/2.0"><Response>
+  <name>2123 Shady svenue, Squirrel Hill, Pittsburgh, PA 15217</name>
+  <Status>
+    <code>200</code>
+    <request>geocode</request>
+  </Status>
+  <Placemark id="p1">
+    <address>2123 Shady Ave, Pittsburgh, PA 15217, USA</address>
+    <AddressDetails Accuracy="8" xmlns="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0"><Country><CountryNameCode>US</CountryNameCode><CountryName>USA</CountryName><AdministrativeArea><AdministrativeAreaName>PA</AdministrativeAreaName><SubAdministrativeArea><SubAdministrativeAreaName>Allegheny</SubAdministrativeAreaName><Locality><LocalityName>Pittsburgh</LocalityName><Thoroughfare><ThoroughfareName>2123 Shady Ave</ThoroughfareName></Thoroughfare><PostalCode><PostalCodeNumber>15217</PostalCodeNumber></PostalCode></Locality></SubAdministrativeArea></AdministrativeArea></Country></AddressDetails>
+    <ExtendedData>
+      <LatLonBox north="40.4370148" south="40.4307196" east="-79.9153212" west="-79.9216164" />
+    </ExtendedData>
+    <Point><coordinates>-79.9184688,40.4338672,0</coordinates></Point>
+  </Placemark>
+</Response></kml>
+  [4;36;1mEvent Create (0.7ms)[0m   [0;1mINSERT INTO "events" ("web_page_link", "price", "address", "created_at", "category", "title", "updated_at", "contact", "date", "lng", "user_id", "number_of_hits", "video_link", "description", "lat", "extra", "image_link") VALUES('http://www.google.com', NULL, '2123 Shady svenue, Squirrel Hill, Pittsburgh, PA 15217', '2011-04-24 14:43:58', 'Info sessions', 'Checking extra', '2011-04-24 14:43:58', '', '2011-04-27 07:43:00', -79.9184688, 1, NULL, '', 'desription', 40.4338672, 'Extra information', '')[0m
+Redirected to http://localhost:3000/users/1/events/16
+Completed in 764ms (DB: 2) | 302 Found [http://localhost/users/1/events]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:43:58) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;35;1mEvent Load (1.1ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (3.8ms)
+Completed in 118ms (View: 74, DB: 3) | 200 OK [http://localhost/users/1/events/16]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:44:38) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;36;1mEvent Load (1.4ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.7ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+ActionView::TemplateError (undefined local variable or method `event' for #<ActionView::Base:0xb6f63590>) on line #41 of app/views/events/show.html.erb:
+38:       <b>Category:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.category %><br/>
+39:       <b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.address %><br/>
+40:       <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.contact %><br/>
+41:       <%if !event.extra.nil? && !event.extra.blank?%>
+42:         <b>Extra information: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h eventextra%>
+43:         <%end%>
+44:       <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.date %><br/>
+
+    app/views/events/show.html.erb:41
+    app/controllers/events_controller.rb:23:in `show'
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendered rescues/_trace (176.9ms)
+Rendered rescues/_request_and_response (1.9ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:45:01) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;36;1mEvent Load (1.6ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;35;1mUser Load (2.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.6ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.5ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+ActionView::TemplateError (undefined local variable or method `event' for #<ActionView::Base:0xb6cb96c8>) on line #41 of app/views/events/show.html.erb:
+38:       <b>Category:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.category %><br/>
+39:       <b>Address:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.address %><br/>
+40:       <b>Contact:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.contact %><br/>
+41:       <%if !event.extra.nil? && !event.extra.blank?%>
+42:         <b>Extra information: </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.extra%>
+43:         <%end%>
+44:       <b>Date:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=h @event.date %><br/>
+
+    app/views/events/show.html.erb:41
+    app/controllers/events_controller.rb:23:in `show'
+    warden (0.10.7) lib/warden/manager.rb:35:in `call'
+    warden (0.10.7) lib/warden/manager.rb:34:in `catch'
+    warden (0.10.7) lib/warden/manager.rb:34:in `call'
+
+Rendered rescues/_trace (87.5ms)
+Rendered rescues/_request_and_response (0.7ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:45:16) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;36;1mEvent Load (1.1ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.9ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (6.2ms)
+Completed in 96ms (View: 60, DB: 3) | 200 OK [http://localhost/users/1/events/16]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:45:34) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;35;1mEvent Load (1.1ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (2.7ms)
+Completed in 94ms (View: 61, DB: 3) | 200 OK [http://localhost/users/1/events/16]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:46:31) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;36;1mEvent Load (1.1ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;35;1mUser Load (1.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (1.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (5.3ms)
+Completed in 91ms (View: 56, DB: 3) | 200 OK [http://localhost/users/1/events/16]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:47:40) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;35;1mEvent Load (1.1ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;36;1mUser Load (1.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (1.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (2.7ms)
+Completed in 146ms (View: 112, DB: 4) | 200 OK [http://localhost/users/1/events/16]
+
+
+Processing EventsController#edit (for 127.0.0.1 at 2011-04-24 07:48:53) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;36;1mEvent Load (1.1ms)[0m   [0;1mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/events
+Rendering events/edit
+  [4;36;1mUser Load (1.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered layouts/_common_header (6.3ms)
+Completed in 126ms (View: 70, DB: 4) | 200 OK [http://localhost/users/1/events/16/edit]
+
+
+Processing EventsController#show (for 127.0.0.1 at 2011-04-24 07:49:01) [GET]
+  Parameters: {"id"=>"16", "user_id"=>"1"}
+  [4;35;1mEvent Load (1.1ms)[0m   [0mSELECT * FROM "events" WHERE ("events"."id" = 16) [0m
+Rendering template within layouts/events
+Rendering events/show
+  [4;36;1mUser Load (1.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.8ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendered layouts/_common_header (6.4ms)
+Completed in 80ms (View: 47, DB: 3) | 200 OK [http://localhost/users/1/events/16]
+
+
+Processing EventsController#show_all_events (for 127.0.0.1 at 2011-04-24 07:49:03) [GET]
+  [4;36;1mEvent Load (2.6ms)[0m   [0;1mSELECT * FROM "events" WHERE (date > '2011-04-24') ORDER BY date asc[0m
+Rendering template within layouts/events
+Rendering events/show_all_events
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [4;36;1mUser Load (3.8ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mUser Load (1.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendered layouts/_common_header (2.7ms)
+Completed in 117ms (View: 83, DB: 9) | 200 OK [http://localhost/show_all_events]
